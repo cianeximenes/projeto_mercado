@@ -38,7 +38,7 @@ header img {
 }
 
 /* --- Alturas das Páginas --- */
-.pagina-home header { height: 525px; }
+.pagina-home header { height: 650px; }
 .pagina-login header { height: 380px; }
 .pagina-cadastro header { height: 300px; }
 
@@ -73,7 +73,7 @@ main {
 }
 .btn:hover { background-color: #1a2d14; }
 
-/* Botões Claros (Login/Cadastro) */
+/* Botões(Login/Cadastro) */
 .btn-entrar {
     width: 200px;
     height: 50px;
@@ -87,7 +87,7 @@ main {
     transform: scale(1.02);
 }
 
-/* Inputs Brancos do Formulário */
+/* Inputs do Formulário */
 .input-login {
     width: 100%;
     max-width: 350px;
@@ -141,7 +141,7 @@ main {
 .btn-dono { background-color: #4CAF50; }
 .btn-caixa { background-color: #6a95d4; }
 
-/* --- Etapa Senha Universal (Ajuste conforme as imagens) --- */
+/* --- Etapa Senha Universal --- */
 #etapa-senha-universal {
     padding: 40px 30px;
     text-align: center;
@@ -158,7 +158,7 @@ main {
 .input-universal {
     width: 100%;
     height: 60px;
-    background-color: #e6e6e6; /* Cinza claro do print */
+    background-color: #e6e6e6; 
     border: none;
     border-radius: 35px;
     padding: 0 25px;
@@ -171,7 +171,7 @@ main {
 .btn-continuar {
     width: 220px;
     height: 55px;
-    background-color: #97c17d; /* Verde oliva claro do print */
+    background-color: #97c17d; 
     color: #1a2d14;
     border-radius: 20px;
     font-weight: 800;
@@ -195,76 +195,67 @@ main {
     max-width: 350px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Garante que os inputs dentro fiquem no meio */
+    align-items: center; 
 }
 
-/* Layout Principal */
 .container-venda {
     display: flex;
     min-height: 100vh;
     background-color: #f5f5f5;
 }
 
-/* Sidebar */
-/* Sidebar */
-/* Sidebar - Ajustada para a foto */
-/* 1. Sidebar: Engrossada e com fundo sólido */
 .sidebar {
-    width: 350px;             /* Define a largura fixa da barra */
+    width: 350px;             
     background-color: #3b4d2e;
     display: flex;
     flex-direction: column;
-    padding: 0;               /* Remove padding para a foto poder controlar o espaço */
+    padding: 0;              
     flex-shrink: 0;
     min-height: 100vh;
 }
 
-/* 2. Container da Logo: Centraliza e dá respiro */
 .logo-area {
     width: 100%;
     display: flex;
-    justify-content: center;  /* Centraliza horizontalmente */
-    padding: 30px 0;          /* Espaço em cima e embaixo da foto */
-    background: transparent;  /* Garante que o fundo seja o da sidebar */
+    justify-content: center;  
+    background: transparent;  
 }
 
-/* 3. A FOTO: Agora com tamanho controlado */
 .logo-area img {
-    width: 300px !important;  /* TAMANHO FIXO para não ter erro */
+    width: 100% !important;     
     height: auto !important;
-    object-fit: contain;      /* Não deixa a imagem esticar ou achatar */
-    display: block;
+    object-fit: contain;
+    display: block;         
 }
 
-/* 4. Botões Laterais: Para não colarem na borda */
 .botoes-laterais {
-    padding: 0 20px;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;               /* Espaçamento entre os botões */
+    gap: 20px;
+    margin-top: 50px;              
 }
 
 .btn-menu {
-    width: 90%;              /* Diminuído para não ocupar a largura toda */
-    max-width: 250px;        /* Limite de largura para não ficar esticado */
-    padding: 12px;           /* Reduzi o preenchimento interno */
-    margin: 10px auto;       /* O "auto" centraliza o botão horizontalmente */
-    display: block;          /* Necessário para o margin auto funcionar */
+    width: 90%;             
+    max-width: 250px;        
+    padding: 12px;           
+    margin: 10px auto;       
+    display: block;          
     border-radius: 15px;
     border: none;
     font-weight: 800;
-    font-size: 1rem;         /* Fonte levemente menor */
+    font-size: 1rem;         
     cursor: pointer;
     background-color: #26411d;
     color: white;
-    text-align: center;      /* Texto no centro do botão */
+    text-align: center;     
 }
 
 .btn-menu.ativo {
-    background-color: #4c9132; /* Verde brilhante da imagem */
+    background-color: #4c9132; 
 }
 
-/* Área de Venda */
 .conteudo-venda {
     flex: 1;
     padding: 40px;
@@ -278,13 +269,12 @@ main {
 }
 
 .card-venda {
-    background-color: #97c17d; /* Verde claro do fundo do card */
+    background-color: #97c17d; 
     border-radius: 20px;
     padding: 30px;
     max-width: 800px;
 }
 
-/* Lista de Produtos (Branca com scroll) */
 .lista-produtos {
     background-color: white;
     border-radius: 20px;
@@ -302,11 +292,9 @@ main {
     margin-bottom: 8px;
 }
 
-/* Cores alternadas como no print */
 .produto-item:nth-child(even) { background-color: #e6e6e6; }
 .produto-item:nth-child(odd) { background-color: #ffffff; }
 
-/* Busca e Inputs */
 .busca-container {
     display: flex;
     gap: 10px;
@@ -321,7 +309,7 @@ main {
 }
 
 .btn-busca {
-    background-color: #6a95d4; /* Azul do botão de busca */
+    background-color: #6a95d4; 
     color: white;
     border-radius: 50%;
     width: 50px;
@@ -338,16 +326,15 @@ textarea {
 }
 
 .btn-entrar {
-    display: flex;         /* Ajuda a centralizar o texto "Login" */
+    display: flex;         
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* REMOVE O SUBLINHADO DO LINK */
-    color: #26411d;        /* Mantém a cor do seu texto */
-    /* ... resto do seu código ... */
+    text-decoration: none; 
+    color: #26411d;       
 }
 
 .rodape-nav {
-    margin-top: auto;         /* Empurra os ícones para o fim da sidebar */
+    margin-top: auto;         
     padding: 20px;
     display: flex;
     gap: 20px;
@@ -362,4 +349,242 @@ textarea {
 
 .rodape-nav i:hover {
     color: #8fb677;
+}
+
+/* ====== AJUSTES PARA TELA DE VENDAS ====== */
+
+.secao-card {
+    margin-bottom: 25px;
+}
+
+.titulo-secao {
+    color: #26411d;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.titulo-secao .opcional {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.select-customizado {
+    position: relative;
+}
+
+.select-customizado select {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+
+/* PRODUTOS NA LISTA */
+.produto-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.produto-nome {
+    color: #26411d;
+    font-weight: 700;
+    min-width: 100px;
+}
+
+.controles-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-quantidade {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: #26411d;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-quantidade:hover {
+    background-color: #1a2d14;
+    transform: scale(1.1);
+}
+
+.quantidade-display {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    min-width: 40px;
+    text-align: center;
+    color: #333;
+}
+
+.preco-produto {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #26411d;
+    font-weight: 700;
+}
+
+.preco-produto input {
+    width: 100px;
+    padding: 8px 12px;
+    border: 2px solid #97c17d;
+    border-radius: 10px;
+    text-align: right;
+    font-weight: 700;
+    color: #26411d;
+}
+
+.btn-remover {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: #d9534f;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-remover:hover {
+    background-color: #c9302c;
+    transform: scale(1.1);
+}
+
+.input-busca {
+    background-color: white;
+}
+
+.rodape-venda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.total-venda {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #26411d;
+}
+
+#valor-total {
+    color: #1a2d14;
+}
+
+.btn-finalizar {
+    padding: 15px 40px;
+    background-color: #6a95d4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-finalizar:hover {
+    background-color: #5a85c4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+#btn-sair {
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.5rem;
+}
+
+#btn-sair:hover {
+    color: #8fb677;
+    transform: scale(1.1);
+}
+
+/* MODAL DE CONFIRMAÇÃO */
+.modal p {
+    color: #666;
+    margin: 15px 0 25px 0;
+    font-size: 0.95rem;
+}
+
+.btn-modal-nao,
+.btn-modal-sim {
+    flex: 1;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-modal-nao {
+    background-color: #6c757d;
+}
+
+.btn-modal-nao:hover {
+    background-color: #5a6268;
+}
+
+.btn-modal-sim {
+    background-color: #d9534f;
+}
+
+.btn-modal-sim:hover {
+    background-color: #c9302c;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .container-venda {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .rodape-venda {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-finalizar {
+        width: 100%;
+    }
 }

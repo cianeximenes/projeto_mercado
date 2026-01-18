@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1aabbae507.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="historico.css">
+    <title>Histórico - Mercado Ximenes</title>
+</head>
+<body>
+
+    <div class="container-venda">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <img src="./img/logo_ximenes.png" alt="Mercado Ximenes">
+            </div>
+
+            <div class="botoes-laterais">
+                <button class="btn-menu" onclick="irVendas()">Adicionar Compras</button>
+                <button class="btn-menu" onclick="irEstoque()">Estoque</button>
+                <button class="btn-menu ativo">Histórico</button>
+            </div>
+
+            <div class="rodape-nav">
+                <i class="fa-solid fa-house" id="btn-sair"></i>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo-venda">
+            <h2 class="titulo-historico">HISTÓRICO</h2>
+
+            <!-- BUSCA -->
+            <div class="busca-historico-container">
+                <input type="text" 
+                       id="busca-historico" 
+                       placeholder="Buscar vendas">
+                <button class="btn-busca-historico">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <!-- LISTA DE VENDAS POR MÊS -->
+            <div id="container-meses">
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE SAÍDA -->
+    <div id="modal-sair" class="modal">
+        <div class="modal-conteudo">
+            <h3>Você tem certeza disso?</h3>
+            <p>Deseja voltar para a página inicial?</p>
+            <div class="modal-botoes">
+                <button type="button" class="btn-modal-nao" id="btn-nao">Não</button>
+                <button type="button"="btn-modal-sim" id="btn-sim">Sim</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE DETALHES DA VENDA -->
+    <div id="modal-detalhes" class="modal">
+        <div class="modal-conteudo modal-detalhes-venda">
+            <div class="modal-header">
+                <h3>Detalhes da Venda</h3>
+                <button class="btn-fechar-modal" onclick="fecharModalDetalhes()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div id="conteudo-detalhes">
+                <!-- Detalhes serão preenchidos aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="historico.js"></script>
+</body>
+</html>

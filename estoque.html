@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1aabbae507.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estoque.css">
+    <title>Estoque - Mercado Ximenes</title>
+</head>
+<body>
+
+    <div class="container-venda">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <img src="./img/logo_ximenes.png" alt="Mercado Ximenes">
+            </div>
+
+            <div class="botoes-laterais">
+                <button class="btn-menu" onclick="voltarVendas()">Adicionar Compras</button>
+                <button class="btn-menu ativo">Estoque</button>
+                <button class="btn-menu" onclick="irHistorico()">Histórico</button>
+            </div>
+
+            <div class="rodape-nav">
+                <i class="fa-solid fa-house" id="btn-sair"></i>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo-venda">
+            <!-- BUSCA NO TOPO -->
+            <div class="header-estoque">
+                <div class="busca-estoque-container">
+                    <input type="text" 
+                           id="busca-geral" 
+                           placeholder="Buscar produtos em estoque">
+                    <button onclick="buscarProduto()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ADICIONADOS RECENTEMENTE -->
+            <div class="secao-estoque">
+                <h3 class="titulo-secao-estoque">Adicionados Recentemente:</h3>
+                <div class="cards-recentes" id="cards-recentes">
+                    <!-- Cards serão gerados aqui -->
+                </div>
+            </div>
+
+            <!-- ESTOQUE COMPLETO -->
+            <div class="secao-estoque">
+                <h3 class="titulo-secao-estoque">Estoque Completo:</h3>
+                <div id="estoque-alfabetico">
+                    <!-- Áreas alfabéticas serão geradas aqui -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE + -->
+    <button class="btn-adicionar-flutuante" onclick="abrirModalAdicionar()">
+        <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <!-- MODAL DE ADICIONAR/REPOR PRODUTO -->
+    <div id="modal-adicionar" class="modal">
+        <div class="modal-conteudo" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>Preencha as informações a seguir</h3>
+                <button class="btn-fechar-modal" onclick="fecharModalAdicionar()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+
+            <form onsubmit="event.preventDefault(); salvarProduto();">
+                <div class="form-group">
+                    <label>Nome do Produto: <span id="badge-existente"></span></label>
+                    <input type="text" 
+                           id="input-nome" 
+                           placeholder="Digite o nome do produto"
+                           autocomplete="off"
+                           oninput="buscarAutoComplete()"
+                           required>
+                    <div id="autocomplete-list" class="autocomplete-suggestions" style="display: none;"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preço de Compra (R$):</label>
+                        <input type="number" 
+                               id="input-preco-compra" 
+                               step="0.01" 
+                               placeholder="0,00"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preço de Venda (R$):</label>
+                        <input type="number" 
+                               id="input-preco-venda" 
+                               step="0.01" 
+                               placeholder="0,00"
+                               required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Quantidade (Número):</label>
+                    <input type="number" 
+                           id="input-quantidade" 
+                           placeholder="Ex: 50"
+                           min="1"
+                           required>
+                </div>
+
+                <button type="submit" class="btn-submit-modal">
+                    <i class="fa-solid fa-check"></i> Adicionar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE SAÍDA -->
+    <div id="modal-sair" class="modal">
+        <div class="modal-conteudo">
+            <h3>Você tem certeza disso?</h3>
+            <p>Deseja voltar para a página inicial?</p>
+            <div class="modal-botoes">
+                <button type="button" class="btn-modal-nao" id="btn-nao">Não</button>
+                <button type="button" class="btn-modal-sim" id="btn-sim">Sim</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="estoque.js"></script>
+    
+    <!-- Script para salvar estoque no localStorage -->
+    <script>
+        // Salvar estoque no localStorage sempre que houver mudanças
+        function salvarEstoqueLocal() {
+            localStorage.setItem('estoqueXimenes', JSON.stringify(estoque));
+        }
+        
+        // Carregar estoque do localStorage ao iniciar
+        function carregarEstoqueLocal() {
+            const estoqueLocal = localStorage.getItem('estoqueXimenes');
+            if (estoqueLocal) {
+                estoque = JSON.parse(estoqueLocal);
+                renderizarRecentes();
+                renderizarEstoqueAlfabetico();
+            }
+        }
+        
+        // Sobrescrever função salvarProduto original para incluir localStorage
+        const salvarProdutoOriginal = salvarProduto;
+        salvarProduto = function() {
+            salvarProdutoOriginal();
+            salvarEstoqueLocal();
+        };
+        
+        // Carregar ao iniciar a página
+        window.addEventListener('load', carregarEstoqueLocal);
+    </script>
+</body>
+</html>

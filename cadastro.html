@@ -20,11 +20,12 @@
         </a>
 
         <div class="cadastro-container">
-            <form id="form-cadastro"> <input type="text" placeholder="ID de usuário" class="input-login">
-                <input type="text" placeholder="Nome" class="input-login">
-                <input type="text" placeholder="CPF" class="input-login">
-                <input type="password" placeholder="Senha" class="input-login">
-                <input type="password" placeholder="Confirmar senha" class="input-login">
+            <form id="form-cadastro">
+                <input type="text" placeholder="ID de usuário" class="input-login" required>
+                <input type="text" placeholder="Nome" class="input-login" required>
+                <input type="text" placeholder="CPF" class="input-login" required>
+                <input type="password" placeholder="Senha" class="input-login" id="senha" required>
+                <input type="password" placeholder="Confirmar senha" class="input-login" id="confirmar-senha" required>
                 
                 <button type="submit" class="btn-entrar">Cadastrar</button>
             </form>
@@ -42,7 +43,7 @@
 
         <div class="modal-conteudo" id="etapa-senha-universal" style="display: none;">
             <h3 style="text-align: left; font-size: 1.1rem;">Digite a senha universal para criar uma nova conta de dono:</h3>
-            <input type="password" placeholder="Senha universal" class="input-universal">
+            <input type="password" placeholder="Senha universal" class="input-universal" id="senha-universal">
             <button type="button" class="btn-continuar" id="btn-finalizar-dono">Continuar</button>
         </div>
     </div>
@@ -53,19 +54,60 @@
     const etapa1 = document.getElementById('etapa-1');
     const etapaSenha = document.getElementById('etapa-senha-universal');
     const btnDono = document.getElementById('btn-escolha-dono');
+    const btnCaixa = document.getElementById('btn-escolha-caixa');
+    const btnFinalizarDono = document.getElementById('btn-finalizar-dono');
 
+    // Quando o formulário é enviado
     form.onsubmit = function(event) {
         event.preventDefault();
+        
+        // Validar se as senhas coincidem
+        const senha = document.getElementById('senha').value;
+        const confirmarSenha = document.getElementById('confirmar-senha').value;
+        
+        if (senha !== confirmarSenha) {
+            alert('As senhas não coincidem!');
+            return;
+        }
+        
+        // Abrir modal de escolha
         modal.style.display = 'flex';
         etapa1.style.display = 'block';
         etapaSenha.style.display = 'none';
     };
 
+    // Quando escolhe "Dono"
     btnDono.onclick = function() {
         etapa1.style.display = 'none';
         etapaSenha.style.display = 'block';
     };
 
+    // Quando escolhe "Caixa" - vai direto para caixa.html
+    btnCaixa.onclick = function() {
+        alert('Conta de caixa criada com sucesso!');
+        window.location.href = 'caixa.html';
+    };
+
+    // Quando finaliza cadastro de "Dono"
+    btnFinalizarDono.onclick = function() {
+        const senhaUniversal = document.getElementById('senha-universal').value;
+        
+        // Validar senha universal 
+        if (senhaUniversal === '') {
+            alert('Digite a senha universal!');
+            return;
+        }
+        
+        // Quando conectar com Python, validar senha universal no backend
+        if (senhaUniversal === 'admin123') {
+            alert('Conta de dono criada com sucesso!');
+            window.location.href = 'compras.html';
+        } else {
+            alert('Senha universal incorreta!');
+        }
+    };
+
+    // Fechar modal ao clicar fora
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
